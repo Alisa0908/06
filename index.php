@@ -85,7 +85,55 @@ echo '<br>';
 $car1->information();
 echo '<br>';
 
+// 以下にCarクラスを継承したTaxiクラスを記述して下さい
+class Taxi extends Car{
 
+    private $passenger;
+
+    public function pickUp($pickUp)
+    {
+        echo "乗車人数は{$pickUp}です｡";
+        $this->passenger += $pickUp;
+    }
+    public function lower($lower)     
+    {
+        if($this->passenger>$lower){
+            echo "{$lower}人降車しました｡";
+        }else{
+            echo "降車人数に誤りがあります｡";
+        }
+        $this->passenger -= $lower;
+    }
+
+}
+
+
+// 以下を実行した時にエラーがでないようにして下さい
+// Carクラスのインスタンスを生成
+// 引数 : 車名、車体番号、カラー
+$car1 = new Car('ランクル', 100, 'black');
+
+// 車の情報を表示
+echo $car1->information();
+echo '<br>';
+echo '<hr>';
+
+// Taxiクラスのインスタンスを生成
+$taxi1 = new Taxi('クラウンのタクシー', 222, 'black');
+
+// 3人乗車
+$taxi1->pickUp(3);
+
+// タクシーの情報表示を表示
+echo $taxi1->information();
+echo '<br>';
+
+// 2人降車
+$taxi1->lower(2);
+echo '<br>';
+
+// 一人降車
+$taxi1->lower(2);
 
 
 
