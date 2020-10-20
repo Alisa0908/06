@@ -9,9 +9,9 @@ class Car{
     
     public function __construct($name, $number, $color)
     {
-            $this->name = $name;
-            $this->number = $number;
-            $this->color = $color;
+        $this->name = $name;
+        $this->number = $number;
+        $this->color = $color;
     }
 
     
